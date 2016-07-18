@@ -32,14 +32,10 @@
     path: "{{ item.dest }}"
     state: link
   with_items:
-    - { src: "{{ horizon_venv_lib_dir }}/horizon_metadata_plugin/enabled/_1040_project_volumes_panel.py", |
-        dest: "{{ horizon_venv_lib_dir }}/openstack_dashboard/enabled/_1040_project_volumes_panel.py" }
-    - { src: "{{ horizon_venv_lib_dir }}/horizon_metadata_plugin/enabled/_1050_project_images_panel.py", |
-        dest: "{{ horizon_venv_lib_dir }}/openstack_dashboard/enabled/_1050_project_images_panel.py" }
-    - { src: "{{ horizon_venv_lib_dir }}/horizon_metadata_plugin/enabled/_3100_add_container_meta_panel.py", |
-        dest: "{{ horizon_venv_lib_dir }}/openstack_dashboard/local/enabled/_3100_add_container_meta_panel.py" }
-    - { src: "{{ horizon_venv_lib_dir }}/horizon_metadata_plugin/enabled/_60_remove_container_panel.py", |
-        dest: "{{ horizon_venv_lib_dir }}/openstack_dashboard/local/enabled/_60_remove_container_panel.py" }
+    - { src: "{{ horizon_venv_lib_dir }}/horizon_metadata_plugin/enabled/_1040_project_volumes_panel.py", dest: "{{ horizon_venv_lib_dir }}/openstack_dashboard/enabled/_1040_project_volumes_panel.py" }
+    - { src: "{{ horizon_venv_lib_dir }}/horizon_metadata_plugin/enabled/_1050_project_images_panel.py", dest: "{{ horizon_venv_lib_dir }}/openstack_dashboard/enabled/_1050_project_images_panel.py" }
+    - { src: "{{ horizon_venv_lib_dir }}/horizon_metadata_plugin/enabled/_3100_add_container_meta_panel.py", dest: "{{ horizon_venv_lib_dir }}/openstack_dashboard/local/enabled/_3100_add_container_meta_panel.py" }
+    - { src: "{{ horizon_venv_lib_dir }}/horizon_metadata_plugin/enabled/_60_remove_container_panel.py", dest: "{{ horizon_venv_lib_dir }}/openstack_dashboard/local/enabled/_60_remove_container_panel.py" }
   notify: Restart apache2
   tags:
     - horizon-configs
