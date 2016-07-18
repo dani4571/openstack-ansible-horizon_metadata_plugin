@@ -26,6 +26,17 @@
   become: true
   notify: Restart apache2
 
+
+- name: Remove current config files for volumes and images
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ horizon_venv_lib_dir }}/openstack_dashboard/enabled/_1040_project_volumes_panel.py"
+    - "{{ horizon_venv_lib_dir }}/openstack_dashboard/enabled/_1050_project_images_panel.py"
+  tags:
+    - horizon-configs
+
 - name: Enable the metadatasearch dashboard Horizon panel
   file:
     src: "{{ item.src }}"
@@ -39,3 +50,17 @@
   notify: Restart apache2
   tags:
     - horizon-configs
+
+# This should almost always be the last task run.
+- name: Collect and compress static files
+  command: "{{ item }}"
+  become: yes
+  become_user: "{{ horizon_system_user_name }}"
+  with_items:
+    - "{{ horizon_venv_bin }}/horizon-manage.py collectstatic --noinput"
+    - "{{ horizon_venv_bin }}/horizon-manage.py compress --force"
+  notify: Restart apache2
+  tags:
+    - horizon-configs
+    - horizon-static-collect
+- horizon-command-bin
