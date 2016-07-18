@@ -37,6 +37,15 @@
   tags:
     - horizon-configs
 
+- name: Copy metadata base templates
+  file:
+    src: "{{ item.src }}"
+    path: "{{ item.dest }}"
+    state: present
+  with_items:
+    - { src: "{{ horizon_venv_lib_dir }}/horizon_metadata_plugin/templates/_metadata.html", dest: "horizon/templates/horizon/common/_metadata.html"}
+    - { src: "{{ horizon_venv_lib_dir }}/horizon_metadata_plugin/templates/_modal_form_metadata.html", dest: "horizon/templates/horizon/common/_modal_form_metadata.html"}
+
 - name: Enable the metadatasearch dashboard Horizon panel
   file:
     src: "{{ item.src }}"
@@ -63,4 +72,4 @@
   tags:
     - horizon-configs
     - horizon-static-collect
-- horizon-command-bin
+    - horizon-command-bin
