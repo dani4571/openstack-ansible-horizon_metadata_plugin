@@ -5,6 +5,10 @@ Edit /etc/openstack_deploy/user_variables.yml.
     horizon_launch_instance_ng: True
 ```
 Run OSA playbooks.
+
+    cd /opt/openstack-ansible/playbooks
+    openstack-ansible os-horizon-install.yml
+
 Copy the ansible playbooks for the horizon_metadata_plugin
 
     cd /opt
