@@ -10,4 +10,12 @@ edit horizon_metadata_plugin.yml set the horizon_metadata_plugin_git_branch to v
       openstack_release: 13.2.0
 ```
 run the playbook
-      oenstack-ansible horizon_metadata_plugin.yml
+
+      openstack-ansible horizon_metadata_plugin.yml
+
+Change to new instance panel. Edit /etc/openstack_deploy/user_variables.yml 
+
+```yaml
+    horizon_launch_instance_legacy: False
+    horizon_launch_instance_ng: True
+```
