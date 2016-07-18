@@ -3,7 +3,7 @@
   roles:
     - horizon_metadata_plugin
   vars:
-    horizon_metadata_plugin_git_branch: v1.0.0
+    horizon_metadata_plugin_git_branch: v1.0.1
     openstack_release: 13.2.0
   vars_files:
     - "./group_vars/all.yml"
