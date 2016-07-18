@@ -1,0 +1,6 @@
+- hosts: horizon_all
+  user: root
+  roles:
+    - horizon_metadata_plugin
+  vars_files:
+    - "./group_vars/all.yml"
