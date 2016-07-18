@@ -1,0 +1,1 @@
+# openstack-ansible-horizon_metadata_plugin
