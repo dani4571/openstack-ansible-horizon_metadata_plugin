@@ -3,6 +3,5 @@ horizon_metadata_plugin_git_branch: v1.0.0
 horizon_metadata_plugin_dest_dir: /opt/rackspace/horizon_metadata_plugin
 
 # Mitaka 
-openstack_release: 13.2.0
 horizon_venv_bin: "/openstack/venvs/horizon-{{ openstack_release }}/bin"
 horizon_venv_lib_dir: "{{ horizon_venv_bin | dirname }}/lib/python2.7/site-packages"
